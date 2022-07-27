@@ -6,15 +6,20 @@ import { ContainerState } from "./types"
 
 // The initial state of the HomePage container
 export const initialState: ContainerState = {
-  isLoadingDomains: false,
+  isLoading: false,
+  data: undefined,
 }
 
 const homePageSlice = createSlice({
   name: "homePage",
   initialState,
   reducers: {
-    setIsLoadingDomains(state, action: PayloadAction<boolean>) {
-      state.isLoadingDomains = action.payload
+    setIsLoading(state, action: PayloadAction<boolean>) {
+      state.isLoading = action.payload
+    },
+    fetchData(state, action: PayloadAction<undefined>) {},
+    setData(state, action: PayloadAction<any>) {
+      state.data = action.payload
     },
   },
 })

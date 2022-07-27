@@ -21,10 +21,8 @@ export enum SessionStorageKeys {
   NEW_KEY = "new-key",
 }
 export interface StandardResponse {
-  message: string
   data: any
-  status: boolean
-  is_success: boolean
+  status: number
 }
 
 export const IS_PRODUCTION = !!process.env.REACT_APP_IS_PRODUCTION

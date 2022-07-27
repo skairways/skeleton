@@ -4,6 +4,7 @@
  *
  */
 
+import { GridLoading } from "app/components/GridLoading"
 import { useGlobalSlice } from "app/slice"
 import { useDispatch } from "react-redux"
 import styled from "styled-components"
@@ -15,9 +16,9 @@ export function Components(props: Props) {
   const dispatch = useDispatch()
 
   return (
-    <>
-      <Wrapper></Wrapper>
-    </>
+    <Wrapper>
+      Special page to show all components in the app <GridLoading />
+    </Wrapper>
   )
 }
 

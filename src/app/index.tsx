@@ -17,14 +17,11 @@ import { HomePage } from "./containers/HomePage/Loadable"
 import { NotFoundPage } from "./containers/NotFoundPage/Loadable"
 
 import { AppPages } from "./constants"
-import { useDispatch } from "react-redux"
 import { useTranslation } from "react-i18next"
 import { translations } from "locales/i18n"
 import { useGlobalSlice } from "./slice"
 import styled from "styled-components/macro"
-import { Components } from "./containers/Components/Loadable"
-import { Container } from "@material-ui/core"
-import { media } from "styles/media"
+import { Components } from "./containers/ComponentsPage/Loadable"
 
 export function App() {
   useGlobalSlice()
@@ -41,18 +38,12 @@ export function App() {
           <meta name="description" content="Bictory" />
         </Helmet>
 
-        <Layout>
-          <Container>
-            <MainContent>
-              <Switch>
-                <Route exact path={AppPages.RootPage} component={HomePage} />
-                <Route path={AppPages.Components} component={Components} />
+        <Switch>
+          <Route exact path={AppPages.RootPage} component={HomePage} />
+          <Route path={AppPages.Components} component={Components} />
 
-                <Route component={NotFoundPage} />
-              </Switch>
-            </MainContent>
-          </Container>
-        </Layout>
+          <Route component={NotFoundPage} />
+        </Switch>
         <GlobalStyle />
       </AppWrapper>
     </>
@@ -62,18 +53,4 @@ export function App() {
 const AppWrapper = styled.div`
   width: 100%;
   height: 100%;
-`
-
-const Layout = styled.div`
-  display: flex;
-  overflow: hidden;
-`
-
-const MainContent = styled.main`
-  width: 100%;
-  padding: 70px 40px;
-
-  ${media.md`
-    padding: 70px 0 40px;
-  `}
 `

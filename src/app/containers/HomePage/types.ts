@@ -1,6 +1,7 @@
 /* --- STATE --- */
 export interface HomePageState {
-  isLoadingDomains: boolean
+  isLoading: boolean
+  data: any
 }
 
 export type ContainerState = HomePageState
