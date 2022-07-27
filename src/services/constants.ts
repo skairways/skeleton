@@ -30,5 +30,5 @@ export interface StandardResponse {
 export const IS_PRODUCTION = !!process.env.REACT_APP_IS_PRODUCTION
 export const IS_DEV = process.env.NODE_ENV === "development"
 
-// Production/Staging Url
+// Production/Staging Urlp
 export const BaseUrl = process.env.REACT_APP_API_ENDPOINT

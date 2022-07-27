@@ -1,7 +1,7 @@
 import { CssVariables } from "styles/global-styles"
 
 export default function EyeIcon(props: { color?: string }) {
-  const fill = props.color ?? CssVariables.White
+  const fill = props.color ?? CssVariables.Main
   return (
     <svg
       width="21"
