@@ -1,9 +1,8 @@
 import CookieProvider, { CookieAttributes } from "js-cookie"
-export enum CookieKeys {
-  ACCESS_TOKEN = "cns_access_token",
-  WalletAddress = "cns_wallet_address",
-}
+
+export enum CookieKeys {}
 export const cookies = CookieProvider
+
 export const cookieConfig = (): CookieAttributes => {
   let date = new Date()
   date.setTime(date.getTime() + 11 * 60 * 60 * 1000)
