@@ -5,15 +5,45 @@
  */
 
 import { Box } from "@material-ui/core"
+import { Spacer } from "app/components/common/Spacer"
+import { StyledContainer } from "app/components/common/StyledContainer"
+import { GridLoading } from "app/components/GridLoading"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import styled from "styled-components/macro"
 import { CssVariables } from "styles/global-styles"
 import { media } from "styles/media"
-import { useHomePageSlice } from "./slice"
+import { HomePageDomains } from "./selectors"
+import { HomePageActions, useHomePageSlice } from "./slice"
 
 export const HomePage = () => {
   useHomePageSlice()
+  const dispatch = useDispatch()
 
-  return <Wrapper></Wrapper>
+  const isLoading = useSelector(HomePageDomains.isLoading)
+  const data = useSelector(HomePageDomains.data)
+
+  useEffect(() => {
+    dispatch(HomePageActions.fetchData())
+  }, [])
+
+  if (isLoading) {
+    return <GridLoading />
+  }
+
+  return (
+    <Wrapper>
+      <StyledContainer>
+        {data && (
+          <Box display="flex">
+            HomePage todo:
+            <Spacer hSpace={CssVariables.Space8} />
+            {data.title}
+          </Box>
+        )}
+      </StyledContainer>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`

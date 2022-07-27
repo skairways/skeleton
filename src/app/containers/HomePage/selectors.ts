@@ -5,13 +5,15 @@ import { initialState } from "./slice"
 
 export const HomePageDomains = {
   root: (state: RootState) => state?.homePage,
-  isLoadingDomains: (state: RootState) =>
-    state?.homePage?.isLoadingDomains || initialState.isLoadingDomains,
+  isLoading: (state: RootState) =>
+    state?.homePage?.isLoading || initialState.isLoading,
+  data: (state: RootState) => state?.homePage?.data || initialState.data,
 }
 
 export const HomePageSelectors = {
-  isLoadingDomains: createSelector(
-    HomePageDomains.isLoadingDomains,
+  isLoading: createSelector(
+    HomePageDomains.isLoading,
     (isLoading) => isLoading
   ),
+  data: createSelector(HomePageDomains.data, (data) => data),
 }

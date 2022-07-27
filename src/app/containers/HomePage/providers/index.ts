@@ -1,3 +1,5 @@
-import { RequestTypes } from "services/constants"
+import ApiService from "services/api_service"
 
-export const getApi = () => {}
+export const getTodoAPI = () => {
+  return ApiService.get("/todos/1")
+}

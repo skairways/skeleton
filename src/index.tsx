@@ -8,14 +8,11 @@
 import "react-app-polyfill/ie11"
 import "react-app-polyfill/stable"
 
-import * as React from "react"
 import * as ReactDOM from "react-dom/client"
 import { Provider } from "react-redux"
 import FontFaceObserver from "fontfaceobserver"
 import * as serviceWorker from "serviceWorker"
 import "sanitize.css/sanitize.css"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
 import { history } from "utils/history"
 // Initialize languages
 import "./locales/i18n"

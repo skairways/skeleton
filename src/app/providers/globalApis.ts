@@ -1,3 +1,5 @@
-import { RequestTypes } from "services/constants"
+import ApiService from "services/api_service"
 
-export const getUserAPI = () => {}
+export const getGlobalAPI = () => {
+  return ApiService.get("/users")
+}
