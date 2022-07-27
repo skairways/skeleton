@@ -17,49 +17,19 @@ import { HomePage } from "./containers/HomePage/Loadable"
 import { NotFoundPage } from "./containers/NotFoundPage/Loadable"
 
 import { AppPages } from "./constants"
-import { useDispatch, useSelector } from "react-redux"
-import { GlobalSelectors } from "./selectors"
+import { useDispatch } from "react-redux"
 import { useTranslation } from "react-i18next"
 import { translations } from "locales/i18n"
-import { globalActions, useGlobalSlice } from "./slice"
-import { CookieKeys, cookies } from "services/cookie"
-import styled, { css } from "styled-components/macro"
+import { useGlobalSlice } from "./slice"
+import styled from "styled-components/macro"
 import { Components } from "./containers/Components/Loadable"
 import { Container } from "@material-ui/core"
 import { media } from "styles/media"
-import { MessageNames, Subscriber } from "services/message_service"
-import { useEffect } from "react"
-import { toast } from "react-toastify"
-let timeOut
-let canLogout = true
 
 export function App() {
   useGlobalSlice()
 
-  const isLoggedIn = useSelector(GlobalSelectors.loggedIn)
   const { t } = useTranslation()
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    if (cookies.get(CookieKeys.ACCESS_TOKEN) !== undefined) {
-      dispatch(globalActions.setIsLoggedIn(true))
-    }
-    const subscription = Subscriber.subscribe((msg: any) => {
-      if (msg.name === MessageNames.AUTH_ERROR_EVENT) {
-        clearTimeout(timeOut)
-        if (canLogout === true) {
-          canLogout = false
-          dispatch(globalActions.setIsLoggedIn(false))
-          toast.error("Authentication failed. Please sign in first!")
-        }
-        timeOut = setTimeout(() => {
-          canLogout = true
-        }, 1000)
-      }
-    })
-
-    return () => subscription.unsubscribe()
-  }, [cookies.get(CookieKeys.ACCESS_TOKEN)])
 
   return (
     <>

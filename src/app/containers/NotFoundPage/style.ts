@@ -12,21 +12,21 @@ export const Wrapper = styled.div`
 `
 
 export const Content = styled.div`
-  color: ${CssVariables.White};
+  color: ${CssVariables.Main};
 `
 
 export const Warning = styled.div`
-  color: ${CssVariables.Black1};
+  color: ${CssVariables.Main};
 `
 export const Title = styled.h2`
   font-size: 60px;
-  color: ${CssVariables.White};
+  color: ${CssVariables.Main};
 `
 
 export const SubTitle = styled.p`
   font-size: 20px;
   margin-top: 24px;
-  color: ${CssVariables.White};
+  color: ${CssVariables.Main};
 `
 
 export const Buttons = styled.div`
