@@ -1,4 +1,4 @@
 export interface GlobalState {
-  loggedIn: boolean
-  isLoadingSignIn: boolean
+  users: any[] | undefined
+  isLoadingUsers: boolean
 }
