@@ -7,7 +7,7 @@ import { connectRouter } from "connected-react-router"
 
 import { InjectedReducersType } from "utils/types/injector-typings"
 import { history } from "utils/history"
-import { globalReducer } from "app/slice"
+import { GlobalReducer } from "app/slice"
 
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
@@ -20,7 +20,7 @@ export function createReducer(injectedReducers: InjectedReducersType = {}) {
     return combineReducers({
       ...injectedReducers,
       router: connectRouter(history),
-      global: globalReducer,
+      global: GlobalReducer,
     })
   }
 }
